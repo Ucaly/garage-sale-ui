@@ -1,0 +1,56 @@
+import React from 'react'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Home from './pages/Home';
+import About from './pages/About'
+import SaleItemDetail from './pages/SaleItemDetail'
+import SaleItems from './components/SaleItems'
+import SaleItemForm from './components/SaleItemForm'
+import Error from './pages/Error'
+import Navbar from './components/Navbar';
+import SignUp from './pages/SignUp';
+import UserList from './components/UserList';
+import SaleItemUpdateForm from './components/SaleItemUpdateForm';
+import UserUpdateForm from './components/UserUpdateForm'
+
+function App() {
+    return (
+        <Router>
+            <Navbar />
+            <Switch>
+                <Route exact path="/">
+                    <Home />
+                </Route>
+                <Route path="/about">
+                    <About />
+                </Route>
+                <Route exact path="/saleitems">
+                    <SaleItems />
+                </Route>
+                <Route exact path="/saleitems/:id">
+                    <SaleItemDetail />
+                </Route>
+                <Route exact path="/saleitems/:id/edit">
+                    <SaleItemUpdateForm />
+                </Route>
+                <Route path="/add_item">
+                    <SaleItemForm />
+                </Route>
+                <Route exact path="/userlist">
+                    <UserList />
+                </Route>
+                <Route exact path="/userlist/:id">
+                    <UserUpdateForm />
+                </Route>
+                <Route path="/sign_up">
+                    <SignUp />
+                </Route>
+                <Route path="*">
+                    <Error />
+                </Route>
+            </Switch>
+            
+        </Router>
+    );
+}
+
+export default App;
